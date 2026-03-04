@@ -19,14 +19,14 @@ services:
       - db
     volumes:
       - static:/backend_static
-      - media:/app/media
+      - media:/backend_media
 
   frontend:
     image: izmodizm/kittygram_frontend
     env_file: .env
     command: cp -r /app/build/. /static/
     volumes:
-      - static:/static
+      - static:/backend_static
 
   gateway:
     image: izmodizm/kittygram_gateway
@@ -36,5 +36,5 @@ services:
     ports:
       - 9000:80
     volumes:
-      - static:/static
-      - media:/media
+      - static:/usr/share/nginx/html/static
+      - media:/usr/share/nginx/html/media
