@@ -1,10 +1,3 @@
-version: '3'
-
-volumes:
-  pg_data:
-  static:
-  media:
-
 services:
   db:
     image: postgres:13
@@ -18,14 +11,7 @@ services:
     depends_on:
       - db
     volumes:
-      - static:/backend_static
       - media:/backend_media
-
-  frontend:
-    image: izmodizm/kittygram_frontend
-    env_file: .env
-    volumes:
-      - static:/usr/share/nginx/html/static
 
   gateway:
     image: izmodizm/kittygram_gateway
@@ -35,5 +21,8 @@ services:
     ports:
       - 9000:80
     volumes:
-      - static:/usr/share/nginx/html/static
       - media:/usr/share/nginx/html/media
+
+volumes:
+  pg_data:
+  media:
