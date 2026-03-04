@@ -8,7 +8,6 @@ on:
 jobs:
   backend_tests:
     runs-on: ubuntu-latest
-    strategy:
     services:
       postgres:
         image: postgres:13.10
