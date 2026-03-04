@@ -22,7 +22,7 @@ services:
       - media:/backend_media
 
   frontend:
-    build: ./frontend/
+    image: izmodizm/kittygram_frontend
     env_file: .env
     volumes:
       - static:/usr/share/nginx/html/static
