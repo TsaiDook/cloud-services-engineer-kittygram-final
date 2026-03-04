@@ -28,7 +28,7 @@ services:
       - static:/usr/share/nginx/html/static
 
   gateway:
-    build: ./nginx/
+    image: izmodizm/kittygram_gateway
     env_file: .env
     depends_on:
       - backend
