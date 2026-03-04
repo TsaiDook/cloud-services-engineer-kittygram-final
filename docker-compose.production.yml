@@ -22,14 +22,13 @@ services:
       - media:/backend_media
 
   frontend:
-    image: izmodizm/kittygram_frontend
+    build: ./frontend/
     env_file: .env
-    command: cp -r /app/build/. /backend_static/static
     volumes:
-      - static:/backend_static
+      - static:/usr/share/nginx/html/static
 
   gateway:
-    image: izmodizm/kittygram_gateway
+    build: ./nginx/
     env_file: .env
     depends_on:
       - backend
