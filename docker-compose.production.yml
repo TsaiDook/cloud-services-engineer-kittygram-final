@@ -24,7 +24,7 @@ services:
   frontend:
     image: izmodizm/kittygram_frontend
     env_file: .env
-    command: cp -r /app/build/. /static/
+    command: cp -r /app/build/. /backend_static/static
     volumes:
       - static:/backend_static
 
